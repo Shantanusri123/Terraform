@@ -5,6 +5,9 @@ orbs:
 workflows:
   deploy_infrastructure:
     jobs:
+      - terraform/fmt:
+          checkout: true
+          context: terraform
       - terraform/validate:
           checkout: true
           context: terraform
