@@ -8,18 +8,22 @@ workflows:
       - terraform/init:
           path: .
       - terraform/fmt:
+          path: .
           checkout: true
           context: terraform
       - terraform/validate:
+          path: .
           checkout: true
           context: terraform
       - terraform/plan:
+          path: .
           checkout: true
           context: terraform
           persist-workspace: true
           requires:
             - terraform/validate
       - terraform/apply:
+          path: .
           attach-workspace: true
           context: terraform
           filters:
