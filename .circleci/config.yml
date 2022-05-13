@@ -6,10 +6,6 @@ workflows:
      jobs:
      - terraform/init:
           path: .
-     - terraform/fmt:
-         path: .
-         checkout: true
-         context: terraform
      -  terraform/validate:
           path: .
           checkout: true
