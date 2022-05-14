@@ -23,6 +23,6 @@ workflows:
           context: terraform
           filters:
             branches:
-              only: 'circleci-setup-project'
+              only: 'circleci-project-setup'
         requires:
      - terraform/apply
