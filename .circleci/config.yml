@@ -26,3 +26,9 @@ workflows:
               only: main
           requires:
             - terraform/plan
+         filters:
+           branches:
+             only:main
+         requires:
+           - terraform/apply
+         
