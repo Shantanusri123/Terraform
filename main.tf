@@ -1,11 +1,11 @@
 resource "aws_s3_bucket" "onebucket" {
-   bucket = "sample s3"
+   bucket = "sample-s3"
    acl = "private"
    versioning {
       enabled = true
    }
    tags = {
-     Name = "Bucket1"
+     Name = "bucket1"
      Environment = "Test"
    }
 }
