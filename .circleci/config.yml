@@ -17,21 +17,12 @@ workflows:
            persist-workspace: true
            requires:
             - terraform/validate
-     -  terraform/apply:
-          path: .
+     - terraform/apply:
           attach-workspace: true
           context: terraform
           filters:
             branches:
-              only: 'main'
-        requires:
-     - terraform/plan
-     -  terraform/apply:
-          path: .
-          attach-workspace: true
-          context: terraform
-          filters:
-            branches:
-              only: 'main'
-        requires:
-     - terraform/apply
+              only: 'circleci-project-setup'
+          requires:
+            - terraform/plan
+     
