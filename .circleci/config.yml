@@ -21,7 +21,7 @@ workflows:
            persist-workspace: true
            requires:
             - terraform/validate
-           workspace: DEV
+           workspace: parameters.ENV
      - terraform/apply:
           attach-workspace: true
           context: terraform
