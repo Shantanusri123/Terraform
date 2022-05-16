@@ -1,4 +1,8 @@
 version: '2.1'
+parameters:
+  ENV:
+    type: string
+    default: ""
 orbs:
   terraform: 'circleci/terraform@2.1'
 workflows:
