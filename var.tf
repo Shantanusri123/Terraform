@@ -14,4 +14,5 @@ variable "bucket" {
 }
 variable "acl" {
   type = string
+  default = "private"
 }
