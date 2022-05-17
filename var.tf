@@ -1,10 +1,6 @@
-#AWS Config
-
-variable "bucket" {
-  type = string
+variable "bucket_name" {
 }
 
-variable "acl" {
-  type = string
-  default = "private"
+variable "acl_value" {
+ default = "private"
 }
