@@ -19,7 +19,6 @@ workflows:
            checkout: true
            context: terraform
            persist-workspace: true
-           var: 'bucket_name="s3test" acl_value="private"'
            requires:
             - terraform/validate
      - terraform/apply:
