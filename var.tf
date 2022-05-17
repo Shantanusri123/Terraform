@@ -1,5 +1,5 @@
 variable "bucket_name" {
-  default = "s3-bucket"
+  default = "s3-sample-bucket"
 }
 
 variable "acl_value" {
