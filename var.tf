@@ -1,9 +1,9 @@
-variable "bucket_name1" {
+variable "bucket_name" {
  type = string
  default = "s3_test"
 }
 
-variable "acl_value1" {
+variable "acl_value" {
  type = string
  default = "private"
 }
