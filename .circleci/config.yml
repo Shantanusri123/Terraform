@@ -19,7 +19,7 @@ workflows:
            checkout: true
            context: terraform
            persist-workspace: true
-           var: 'bucket="circleci-sample-s3-bucket",acl="private"'
+           var_file: 'bucket="circleci-sample-s3-bucket",acl="private"'
            requires:
             - terraform/validate
            workspace: parameters.ENV
