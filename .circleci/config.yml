@@ -19,7 +19,7 @@ workflows:
            checkout: true
            context: terraform
            persist-workspace: true
-           var_file: './var.tfvars'
+           var_file: './var.tf'
            requires:
             - terraform/validate
      - terraform/apply:
