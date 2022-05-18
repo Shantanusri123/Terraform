@@ -18,7 +18,7 @@ jobs:
           path: .
       - terraform/plan:
           path: .
-          var_file: 'Tfvars/tfvars/dev/s3.tfvars'
+          var_file: './Tfvars/tfvars/dev/s3.tfvars'
       - terraform/apply:
           path: .
     working_directory: ~/src
