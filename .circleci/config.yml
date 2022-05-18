@@ -10,6 +10,7 @@ jobs:
           command: >-
                 GIT_SSH_COMMAND='ssh -vv -i ~/.ssh/id_rsa'
                 git clone https://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@github.com/Shantanusri123/Tfvars.git
+                ls
           name: GIT Clone TFvars repo
       - terraform/init:
           path: .
