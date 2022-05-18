@@ -12,6 +12,7 @@ jobs:
                 git clone https://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@github.com/Shantanusri123/Tfvars.git
           name: GIT Clone TFvars repo
       - run:
+          name: "LS"
           command: ls
       - terraform/init:
           path: .
