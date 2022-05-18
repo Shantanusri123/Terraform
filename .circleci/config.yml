@@ -10,19 +10,16 @@ jobs:
           command: >-
                 GIT_SSH_COMMAND='ssh -vv -i ~/.ssh/id_rsa'
                 git clone https://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@github.com/Shantanusri123/Tfvars.git
-          name: GIT Clone TFvars repo
-      - run:
-          name: "LS"
-          command: ls
+          name: GIT Clone TFvars repository
       - terraform/init:
           path: .
       - terraform/validate:
           path: .
       - run:
-          name: "terraform/plan"
+          name: "terraform plan"
           command: terraform plan -var-file "./Tfvars/tfvars/dev/s3.tfvars"
       - run:
-          name: "terraform/apply"
+          name: "terraform apply"
           command: terraform apply -auto-approve -var-file "./Tfvars/tfvars/dev/s3.tfvars"
     working_directory: ~/src
 workflows:
