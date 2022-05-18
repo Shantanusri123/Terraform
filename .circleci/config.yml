@@ -1,32 +1,26 @@
 version: '2.1'
-parameters:
-  ENV:
-    type: string
-    default: ""
 orbs:
   terraform: 'circleci/terraform@2.1'
+jobs:
+  single-job-lifecycle:
+    executor: terraform/default
+    steps:
+      - checkout
+      - run:
+          command: >-
+                GIT_SSH_COMMAND='ssh -vv -i ~/.ssh/id_rsa'
+                git clone https://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@github.com/Shantanusri123/Tfvars.git
+          name: GIT Clone TFvars repo
+      - terraform/init:
+          path: .
+      - terraform/validate:
+          path: .
+      - terraform/plan:
+          path: .
+      - terraform/apply:
+          path: .
+    working_directory: ~/src
 workflows:
-  deploy_infrastructure:
-     jobs:
-     - terraform/init:
-          path: .
-     -  terraform/validate:
-          path: .
-          checkout: true
-          context: terraform
-     -  terraform/plan:
-           path: .
-           checkout: true
-           context: terraform
-           persist-workspace: true
-           requires:
-            - terraform/validate
-     - terraform/apply:
-          attach-workspace: true
-          context: terraform
-          filters:
-            branches:
-              only: 'circleci-project-setup'
-          requires:
-            - terraform/plan
-     
+  single-job-lifecycle:
+    jobs:
+      - single-job-lifecycle
