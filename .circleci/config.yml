@@ -23,7 +23,7 @@ jobs:
           command: terraform plan -var-file "./Tfvars/tfvars/dev/s3.tfvars"
       - run:
           name: "terraform/apply"
-          command: terraform apply -var-file "./Tfvars/tfvars/dev/s3.tfvars"
+          command: terraform apply -auto-approve -var-file "./Tfvars/tfvars/dev/s3.tfvars"
     working_directory: ~/src
 workflows:
   single-job-lifecycle:
