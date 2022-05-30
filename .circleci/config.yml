@@ -1,5 +1,5 @@
 version: 2.1
-#
+
 orbs:
   terraform: 'circleci/terraform@2.1'
 
@@ -7,21 +7,6 @@ parameters:
   example:
     type: string
     default: ""
-
-#jobs:
-#  single-job-lifecycle:
-#    executor: terraform/default
-#    steps:
-#      - checkout
-#      - run : echo <<pipeline.parameters.example>>
-#
-#workflows:
-#  single-job-lifecycle:
-#    jobs:
-#      - single-job-lifecycle
-
-#orbs:
-#  terraform: 'circleci/terraform@2.1'
 
 jobs:
   single-job-lifecycle:
