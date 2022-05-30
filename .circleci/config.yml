@@ -3,20 +3,16 @@ version: '2.1'
 orbs:
   terraform: 'circleci/terraform@2.1'
 
-
 parameters:
-  message:
-    type: string
-    default: Example
-steps:
-    - run: echo << parameters.message >>
+ message:
+  type: string
+  default: "Example"
 
 jobs:
   single-job-lifecycle:
     executor: terraform/default
     steps:
-      - run: echo "Hello it just ran"
-
+      - run: echo Hello <<paramters.message>>
 
 workflows:
   single-job-lifecycle:
