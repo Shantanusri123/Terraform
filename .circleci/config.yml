@@ -1,5 +1,5 @@
 version: 2.1
-
+#
 orbs:
   terraform: 'circleci/terraform@2.1'
 
@@ -8,43 +8,43 @@ parameters:
     type: string
     default: ""
 
-jobs:
-  single-job-lifecycle:
-    executor: terraform/default
-    steps:
-      - checkout
-      - run : echo <<pipeline.parameters.example>>
-
-workflows:
-  single-job-lifecycle:
-    jobs:
-      - single-job-lifecycle
-
-#orbs:
-#  terraform: 'circleci/terraform@2.1'
-
 #jobs:
 #  single-job-lifecycle:
 #    executor: terraform/default
 #    steps:
 #      - checkout
-#      - run:
-#          command: >-
-#                GIT_SSH_COMMAND='ssh -vv -i ~/.ssh/id_rsa'
-#                git clone https://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@github.com/Shantanusri123/Tfvars.git
-#          name: GIT Clone TFvars repository
-#      - terraform/init:
-#          path: .
-#      - terraform/validate:
-#          path: .
-#      - run:
-#          name: "terraform plan"
-#          command: terraform plan -var-file "./Tfvars/tfvars/dev/s3.tfvars"
-#      - run:
-#          name: "terraform apply"
-#          command: terraform apply -auto-approve -var-file "./Tfvars/tfvars/dev/s3.tfvars"
-#    working_directory: ~/src
+#      - run : echo <<pipeline.parameters.example>>
+#
 #workflows:
 #  single-job-lifecycle:
 #    jobs:
 #      - single-job-lifecycle
+
+#orbs:
+#  terraform: 'circleci/terraform@2.1'
+
+jobs:
+  single-job-lifecycle:
+    executor: terraform/default
+    steps:
+      - checkout
+      - run:
+          command: >-
+                GIT_SSH_COMMAND='ssh -vv -i ~/.ssh/id_rsa'
+                git clone https://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@github.com/Shantanusri123/Tfvars.git
+          name: GIT Clone TFvars repository
+      - terraform/init:
+          path: .
+      - terraform/validate:
+          path: .
+      - run:
+          name: "terraform plan"
+          command: terraform plan -var-file "./Tfvars/tfvars/<<pipeline.parameters.example>>/s3.tfvars"
+      - run:
+          name: "terraform apply"
+          command: terraform apply -auto-approve -var-file "./Tfvars/tfvars/<<pipeline.parameters.example>>/s3.tfvars"
+    working_directory: ~/src
+workflows:
+  single-job-lifecycle:
+    jobs:
+      - single-job-lifecycle
