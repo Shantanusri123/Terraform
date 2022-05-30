@@ -4,7 +4,7 @@ orbs:
   terraform: 'circleci/terraform@2.1'
 
 parameters:
-  example:
+  environment:
     type: string
     default: ""
 
@@ -24,10 +24,10 @@ jobs:
           path: .
       - run:
           name: "terraform plan"
-          command: terraform plan -var-file "./Tfvars/tfvars/<<pipeline.parameters.example>>/s3.tfvars"
+          command: terraform plan -var-file "./Tfvars/tfvars/<<pipeline.parameters.environment>>/s3.tfvars"
       - run:
           name: "terraform apply"
-          command: terraform apply -auto-approve -var-file "./Tfvars/tfvars/<<pipeline.parameters.example>>/s3.tfvars"
+          command: terraform apply -auto-approve -var-file "./Tfvars/tfvars/<<pipeline.parameters.environment>>/s3.tfvars"
     working_directory: ~/src
 workflows:
   single-job-lifecycle:
