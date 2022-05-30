@@ -6,9 +6,13 @@ orbs:
 jobs:
   single-job-lifecycle:
     executor: terraform/default
+    parameters:
+     example:
+        type: string
+        default: ""
     steps:
       - checkout
-      - run : echo ${test_pipeline}
+      - run : echo <<pipeline.paramters.example>>
 
 workflows:
   single-job-lifecycle:
