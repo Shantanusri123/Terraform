@@ -9,7 +9,7 @@ jobs:
     parameters:
       message:
         type: string
-        default: <<test_pipeline>>
+        default: $test_pipeline
     steps:
       - checkout
       - run : echo <<parameters.message>>
