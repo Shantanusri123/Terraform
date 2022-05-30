@@ -20,6 +20,9 @@ jobs:
           name: GIT Clone TFvars repository
       - terraform/init:
           path: .
+      - run:
+          name: "terraform create workspace"
+          command: terraform new workspace <<pipeline.parameters.environment>>
       - terraform/validate:
           path: .
       - run:
