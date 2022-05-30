@@ -1,6 +1,14 @@
 version: '2.1'
 orbs:
   terraform: 'circleci/terraform@2.1'
+  
+command :
+  Print:
+    parameter:
+      example:
+        type : string
+    steps:
+      - run: echo <<parameter.example>>
 jobs:
   single-job-lifecycle:
     executor: terraform/default
