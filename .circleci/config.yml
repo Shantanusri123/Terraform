@@ -9,7 +9,7 @@ jobs:
     parameters:
       message:
         type: string
-        default: "./main"
+        default: ""
     steps:
       - checkout
       - run : echo "$test-pipeline"
