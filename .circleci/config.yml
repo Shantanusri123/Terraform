@@ -8,6 +8,7 @@ commands:
     parameters:
       message:
         type: string
+        default: Example
     steps:
       - run: echo << parameters.message >>
 
