@@ -23,12 +23,6 @@ jobs:
       - run:
           name: "terraform create workspace"
           command: terraform workspace new <<pipeline.parameters.environment>>
-      - run:
-          name: "terraform list workspace"
-          command: terraform workspace list
-      - run:
-          name: "terraform select workspace"
-          command: terraform workspace select <<pipeline.parameters.environment>>
       - terraform/validate:
           path: 
       - run:
