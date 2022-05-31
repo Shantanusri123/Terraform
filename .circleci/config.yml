@@ -23,8 +23,11 @@ jobs:
       - run:
           name: "terraform create workspace"
           command: terraform workspace new <<pipeline.parameters.environment>>
+      - run:
+          name: "terraform select workspace"
+          command: terraform workspace select <<pipeline.parameters.environment>>
       - terraform/validate:
-          path: .
+          path: 
       - run:
           name: "terraform plan"
           command: terraform plan -var-file "./Tfvars/tfvars/<<pipeline.parameters.environment>>/s3.tfvars"
