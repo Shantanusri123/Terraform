@@ -33,6 +33,6 @@ jobs:
           command: terraform apply -auto-approve -var-file "./Tfvars/tfvars/<<pipeline.parameters.environment>>/s3.tfvars"
     working_directory: ~/src
 workflows:
-  single-job-lifecycle:
+  single-job-lifecycle: 
     jobs:
       - single-job-lifecycle
