@@ -31,4 +31,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "{{ $AWS_ACCESS_KEY_ID }}"
+      run: echo "$AWS_ACCESS_KEY_ID"
