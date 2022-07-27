@@ -7,7 +7,6 @@ parameters:
   environment:
     type: string
     default: ""
-
 jobs:
   single-job-lifecycle:
     executor: terraform/default
