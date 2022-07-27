@@ -54,4 +54,6 @@ workflows:
   single-job-lifecycle: 
     jobs:
       - single-job-lifecycle
-      - apply-job-lifecycle
+      - apply-job-lifecycle:
+          requires:
+            - single-job-lifecycle
