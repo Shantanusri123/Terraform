@@ -6,4 +6,4 @@
 resource "aws_instance" "ec2instance"{
   ami = var.ami
   instnace_type = t2.micro
-  security_groups = [aws_security_group.
+  security_groups = 
