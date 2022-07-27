@@ -54,8 +54,4 @@ workflows:
   single-job-lifecycle: 
     jobs:
       - single-job-lifecycle
-      - hold:
-          type: approval
-          requires:
-            - single-job-lifecycle
       - apply-job-lifecycle
