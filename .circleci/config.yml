@@ -32,10 +32,15 @@ jobs:
       - run:
           name: "terraform plan"
           command: terraform plan -var-file "./Tfvars/tfvars/<<pipeline.parameters.environment>>/s3.tfvars"
+      - persist_to_workspace:
+          root: .
+          paths: .
 
   apply-job-lifecycle:
     executor: terraform/default
     steps:
+      - attach_workspace:
+          at: .
       - run:
           command: >-
                 GIT_SSH_COMMAND='ssh -vv -i ~/.ssh/id_rsa'
