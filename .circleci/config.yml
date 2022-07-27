@@ -42,11 +42,6 @@ jobs:
                 git clone https://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@github.com/Shantanusri123/Tfvars.git
           name: GIT Clone TFvars repository
       - run:
-          command: >-
-                GIT_SSH_COMMAND='ssh -vv -i ~/.ssh/id_rsa'
-                git clone https://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@github.com/Shantanusri123/Terraform.git
-          name: GIT Clone Terraform repository
-      - run:
           name: "terraform apply"
           command: terraform apply -auto-approve -var-file "./Tfvars/tfvars/<<pipeline.parameters.environment>>/s3.tfvars"
     working_directory: ~/src
