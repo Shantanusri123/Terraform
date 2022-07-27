@@ -15,13 +15,13 @@ jobs:
       - run:
           command: >-
                 GIT_SSH_COMMAND='ssh -vv -i ~/.ssh/id_rsa'
-                git clone https://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@github.com/Shantanusri123/Tfvars.git
-          name: GIT Clone TFvars repository
+                git clone https://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@github.com/Shantanusri123/Terraform.git
+          name: GIT Clone Terraform repository
       - run:
           command: >-
                 GIT_SSH_COMMAND='ssh -vv -i ~/.ssh/id_rsa'
-                git clone https://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@github.com/Shantanusri123/Terraform.git
-          name: GIT Clone Terraform repository
+                git clone https://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@github.com/Shantanusri123/Tfvars.git
+          name: GIT Clone TFvars repository
       - terraform/init:
           path: .
       - run:
